@@ -1,0 +1,562 @@
+{
+  "restaurant": {
+    "name": "Bosphorus Berlin",
+    "tagline": "Authentische türkische Küche im Herzen Berlins",
+    "cuisine": "Turkish",
+    "address": {
+      "street": "Torstraße 142",
+      "district": "Mitte",
+      "city": "Berlin",
+      "postal_code": "10119",
+      "country": "Germany",
+      "google_maps": "https://maps.google.com/?q=Bosphorus+Berlin+Torstrasse+142"
+    },
+    "contact": {
+      "phone": "+49 30 2809 4417",
+      "whatsapp": "+49 30 2809 4417",
+      "email": "reservierung@bosphorus-berlin.de",
+      "website": "https://bosphorus-berlin.de",
+      "instagram": "@bosphorus_berlin"
+    },
+    "opening_hours": {
+      "monday": "17:00–23:00",
+      "tuesday": "17:00–23:00",
+      "wednesday": "17:00–23:00",
+      "thursday": "17:00–23:30",
+      "friday": "12:00–00:00",
+      "saturday": "12:00–00:00",
+      "sunday": "12:00–22:00",
+      "kitchen_closes": "30 minutes before closing",
+      "note": "Montags und dienstags kein Mittagsservice"
+    },
+    "capacity": 60,
+    "reservation_policy": {
+      "required_for": "groups of 4 or more",
+      "walk_ins": "welcome for 1-3 guests, subject to availability",
+      "max_advance_booking_days": 60,
+      "cancellation_policy": "Please cancel at least 24 hours in advance",
+      "large_group_policy": "Groups of 6+ require a €15 per person deposit via Stripe",
+      "no_show_policy": "No-show deposit is non-refundable",
+      "table_hold_time": "15 minutes after reservation time"
+    },
+    "special_features": [
+      "Live Bağlama music on Friday and Saturday evenings (20:00–22:00)",
+      "Private dining room for groups up to 20 people",
+      "Halal certified kitchen",
+      "Rooftop terrace open May–September",
+      "Gluten-free options available on request",
+      "Children's menu available"
+    ],
+    "payment": {
+      "accepted": ["Cash", "EC Card", "Visa", "Mastercard", "American Express"],
+      "service_charge": "Not included — at guest's discretion",
+      "currency": "EUR"
+    },
+    "parking": "Public parking available at Torstraße Parkhaus, 3 minute walk. Tram M8/M10 stop directly outside.",
+    "google_review_link": "https://g.page/r/bosphorus-berlin/review"
+  },
+  "menu": {
+    "starters": [
+      {
+        "id": "S01",
+        "name": "Mezze Platte",
+        "name_de": "Mezze Teller",
+        "description": "A generous selection of our finest cold meze: hummus, cacık (yoghurt with cucumber and dill), patlıcan salatası (smoked aubergine), acılı ezme (spicy tomato paste), olives, and warm pide bread.",
+        "description_de": "Eine großzügige Auswahl unserer feinsten Mezze: Hummus, Cacık, Patlıcan Salatası, Acılı Ezme, Oliven und warmes Pide-Brot.",
+        "price": 16.90,
+        "allergens": ["gluten", "dairy", "sesame"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "starter",
+        "popular": true
+      },
+      {
+        "id": "S02",
+        "name": "Hummus",
+        "name_de": "Hummus",
+        "description": "Classic creamy chickpea hummus with tahini, lemon, garlic, topped with olive oil and paprika. Served with warm pide bread.",
+        "description_de": "Cremiger Kichererbsenhummus mit Tahini, Zitrone, Knoblauch, Olivenöl und Paprika. Mit warmem Pide-Brot.",
+        "price": 8.50,
+        "allergens": ["gluten", "sesame"],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "starter",
+        "popular": true
+      },
+      {
+        "id": "S03",
+        "name": "Sigara Böreği",
+        "name_de": "Sigara Böreği",
+        "description": "Crispy fried filo pastry rolls filled with white cheese and fresh herbs. Served with yoghurt dipping sauce.",
+        "description_de": "Knusprige gebratene Yufka-Rollen gefüllt mit weißem Käse und frischen Kräutern. Mit Joghurt-Dipsauce.",
+        "price": 9.80,
+        "allergens": ["gluten", "dairy", "eggs"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "starter",
+        "popular": true
+      },
+      {
+        "id": "S04",
+        "name": "Çoban Salatası",
+        "name_de": "Hirtensalat",
+        "description": "Fresh shepherd's salad with diced tomatoes, cucumber, green pepper, red onion, parsley, sumac, and a light lemon-olive oil dressing.",
+        "description_de": "Frischer Hirtensalat mit Tomaten, Gurken, Paprika, Zwiebeln, Petersilie, Sumach und Zitronen-Olivenöl-Dressing.",
+        "price": 8.00,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "starter",
+        "popular": false
+      },
+      {
+        "id": "S05",
+        "name": "Mercimek Çorbası",
+        "name_de": "Rote Linsensuppe",
+        "description": "Traditional Turkish red lentil soup with cumin, mint butter, and a squeeze of lemon. Velvety smooth and warming.",
+        "description_de": "Traditionelle türkische rote Linsensuppe mit Kreuzkümmel, Minzbutter und Zitrone. Samtig und wärmend.",
+        "price": 7.50,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "starter",
+        "popular": true
+      },
+      {
+        "id": "S06",
+        "name": "Lahmacun",
+        "name_de": "Türkische Pizza",
+        "description": "Thin crispy flatbread topped with spiced minced lamb, onion, tomato, and parsley. Served with fresh salad and lemon.",
+        "description_de": "Dünnes knuspriges Fladenbrot mit gewürztem Lammhack, Zwiebeln, Tomaten und Petersilie. Mit Salat und Zitrone.",
+        "price": 10.50,
+        "allergens": ["gluten"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "starter",
+        "popular": true
+      }
+    ],
+    "mains": [
+      {
+        "id": "M01",
+        "name": "Adana Kebab",
+        "name_de": "Adana Kebab",
+        "description": "Hand-minced spiced lamb skewer grilled over charcoal, served with bulgur pilav, grilled vegetables, and our house yoghurt sauce.",
+        "description_de": "Handgehackter gewürzter Lammspieß vom Holzkohlegrill, mit Bulgurpilav, gegrilltem Gemüse und Joghurtsauce.",
+        "price": 24.50,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": true,
+        "chef_special": true
+      },
+      {
+        "id": "M02",
+        "name": "İskender Kebab",
+        "name_de": "İskender Kebab",
+        "description": "Döner meat sliced thin over crispy pide bread, drenched in hot tomato sauce and sizzling butter. Served with yoghurt. A Turkish classic.",
+        "description_de": "Dünn geschnittenes Dönerfleisch auf knusprigem Pide-Brot, übergossen mit heißer Tomatensauce und brutzelnder Butter. Mit Joghurt.",
+        "price": 22.90,
+        "allergens": ["gluten", "dairy"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": true
+      },
+      {
+        "id": "M03",
+        "name": "Kuzu Tandır",
+        "name_de": "Lammkeule Tandır",
+        "description": "Slow-roasted leg of lamb (12 hours) in our clay oven, fall-off-the-bone tender. Served with roasted potatoes, seasonal vegetables, and rice.",
+        "description_de": "12 Stunden langsam gebratene Lammkeule aus unserem Tonofen. Serviert mit Bratkartoffeln, Saisongemüse und Reis.",
+        "price": 29.90,
+        "allergens": [],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": true,
+        "chef_special": true,
+        "note": "Limited portions — available from 18:00 only"
+      },
+      {
+        "id": "M04",
+        "name": "Patlıcan Musakka",
+        "name_de": "Auberginen Musakka",
+        "description": "Layers of oven-baked aubergine with minced beef, tomato sauce, and béchamel. A hearty Turkish classic.",
+        "description_de": "Überbackene Auberginen-Schichten mit Rinderhack, Tomatensauce und Béchamel. Ein herzhafter türkischer Klassiker.",
+        "price": 20.50,
+        "allergens": ["dairy", "eggs", "gluten"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": false
+      },
+      {
+        "id": "M05",
+        "name": "Sebzeli Güveç",
+        "name_de": "Gemüseeintopf",
+        "description": "Slow-cooked clay pot stew of seasonal vegetables: aubergine, courgette, peppers, tomatoes, and chickpeas in a rich tomato-herb sauce.",
+        "description_de": "Langsam gegarter Tontopf-Eintopf aus Saisongemüse: Aubergine, Zucchini, Paprika, Tomaten und Kichererbsen in Kräuter-Tomatensauce.",
+        "price": 18.90,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "main",
+        "popular": false
+      },
+      {
+        "id": "M06",
+        "name": "Tavuk Şiş",
+        "name_de": "Hähnchen Şiş",
+        "description": "Marinated chicken thigh skewers grilled over charcoal with peppers and onion. Served with rice pilav and cacık.",
+        "description_de": "Marinierte Hähnchenoberschenkel-Spieße vom Holzkohlegrill mit Paprika und Zwiebeln. Mit Reispilav und Cacık.",
+        "price": 20.90,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": true
+      },
+      {
+        "id": "M07",
+        "name": "Balık Tava",
+        "name_de": "Gebratener Fisch",
+        "description": "Pan-fried sea bass fillet with garlic, lemon, capers, and fresh herbs. Served with roasted vegetables and bulgur.",
+        "description_de": "Gebratenes Wolfsbarschfilet mit Knoblauch, Zitrone, Kapern und frischen Kräutern. Mit geröstetem Gemüse und Bulgur.",
+        "price": 26.50,
+        "allergens": ["fish"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": false
+      },
+      {
+        "id": "M08",
+        "name": "Karnıyarık",
+        "name_de": "Gefüllte Aubergine",
+        "description": "Whole aubergine stuffed with spiced minced beef, pine nuts, currants, and herbs. Baked and served with rice.",
+        "description_de": "Ganze Aubergine gefüllt mit gewürztem Rinderhack, Pinienkernen, Korinthen und Kräutern. Gebacken, mit Reis.",
+        "price": 21.50,
+        "allergens": ["nuts"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": false
+      },
+      {
+        "id": "M09",
+        "name": "Falafel Teller",
+        "name_de": "Falafel Teller",
+        "description": "House-made crispy falafel patties served with hummus, tabbouleh, pickled vegetables, and warm pide bread.",
+        "description_de": "Hausgemachte knusprige Falafel-Bällchen mit Hummus, Tabbouleh, eingelegtem Gemüse und warmem Pide-Brot.",
+        "price": 17.90,
+        "allergens": ["gluten", "sesame"],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "main",
+        "popular": true
+      },
+      {
+        "id": "M10",
+        "name": "Mixed Grill Platte",
+        "name_de": "Gemischter Grilleller",
+        "description": "For two: Adana kebab, Tavuk şiş, köfte, lamb chop, grilled vegetables, rice, and salad. The full Bosphorus experience.",
+        "description_de": "Für zwei: Adana Kebab, Tavuk Şiş, Köfte, Lammkotelette, gegrilltes Gemüse, Reis und Salat.",
+        "price": 52.00,
+        "serves": 2,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": false,
+        "halal": true,
+        "category": "main",
+        "popular": true,
+        "chef_special": true
+      }
+    ],
+    "desserts": [
+      {
+        "id": "D01",
+        "name": "Baklava",
+        "name_de": "Baklava",
+        "description": "House-made filo pastry layered with crushed pistachios and walnuts, soaked in fragrant rose-water syrup. Served with kaymak cream.",
+        "description_de": "Hausgemachte Yufka-Blätterteig-Schichten mit Pistazien und Walnüssen, getränkt in Rosenwasser-Sirup. Mit Kaymak-Creme.",
+        "price": 9.50,
+        "allergens": ["gluten", "nuts", "dairy"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "dessert",
+        "popular": true
+      },
+      {
+        "id": "D02",
+        "name": "Künefe",
+        "name_de": "Künefe",
+        "description": "Warm shredded wheat pastry filled with melted white cheese, drenched in sweet syrup and topped with ground pistachios. Served immediately.",
+        "description_de": "Warme Engelshaar-Teig-Pastete mit geschmolzenem Weißkäse, Sirup und Pistazien. Sofort serviert.",
+        "price": 11.90,
+        "allergens": ["gluten", "dairy", "nuts"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "dessert",
+        "popular": true,
+        "note": "15 minutes preparation time — worth the wait"
+      },
+      {
+        "id": "D03",
+        "name": "Sütlaç",
+        "name_de": "Reispudding",
+        "description": "Traditional oven-baked rice pudding with a caramelised golden top, perfumed with vanilla and rose water. Served chilled.",
+        "description_de": "Traditioneller ofengebackener Reispudding mit karamellisierter Oberfläche, Vanille und Rosenwasser. Kalt serviert.",
+        "price": 7.90,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "dessert",
+        "popular": false
+      },
+      {
+        "id": "D04",
+        "name": "Dondurma",
+        "name_de": "Türkisches Eis",
+        "description": "Two scoops of traditional chewy Turkish ice cream. Choice of: pistachio, rose, mastic, or chocolate.",
+        "description_de": "Zwei Kugeln traditionelles, zähes türkisches Eis. Auswahl: Pistazie, Rose, Mastix oder Schokolade.",
+        "price": 6.50,
+        "allergens": ["dairy", "nuts"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "dessert",
+        "popular": false
+      },
+      {
+        "id": "D05",
+        "name": "Lokma",
+        "name_de": "Lokma",
+        "description": "Light fluffy fried dough balls drizzled with honey syrup and dusted with cinnamon and sesame. A street food favourite.",
+        "description_de": "Leichte, luftige gebratene Teigbällchen mit Honigsirup, Zimt und Sesam. Ein Straßenfood-Klassiker.",
+        "price": 7.50,
+        "allergens": ["gluten", "sesame"],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "dessert",
+        "popular": false
+      }
+    ],
+    "drinks": [
+      {
+        "id": "DR01",
+        "name": "Çay",
+        "name_de": "Türkischer Tee",
+        "description": "Classic Turkish black tea served in traditional tulip glasses. Unlimited refills.",
+        "description_de": "Klassischer türkischer Schwarztee in traditionellen Tulpengläsern. Unbegrenzte Nachfüllungen.",
+        "price": 3.00,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": true
+      },
+      {
+        "id": "DR02",
+        "name": "Türkischer Kaffee",
+        "name_de": "Türkischer Kaffee",
+        "description": "Traditional Turkish coffee prepared in a copper cezve. Choose: şekerli (sweet), az şekerli (slightly sweet), or sade (without sugar).",
+        "description_de": "Traditioneller türkischer Kaffee aus dem Kupfer-Cezve. Wahl: süß, halbsüß oder ohne Zucker.",
+        "price": 4.50,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": true
+      },
+      {
+        "id": "DR03",
+        "name": "Ayran",
+        "name_de": "Ayran",
+        "description": "Traditional cold yoghurt drink, lightly salted. The perfect companion to any grilled dish.",
+        "description_de": "Traditionelles kaltes Joghurtgetränk, leicht gesalzen. Der perfekte Begleiter zu Grillgerichten.",
+        "price": 4.00,
+        "allergens": ["dairy"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": true
+      },
+      {
+        "id": "DR04",
+        "name": "Şalgam Suyu",
+        "name_de": "Rübensaft",
+        "description": "Traditional fermented purple carrot and turnip juice, tangy and earthy. Mild or spicy.",
+        "description_de": "Traditioneller fermentierter lila Möhren- und Rübensaft. Mild oder scharf.",
+        "price": 4.50,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": false
+      },
+      {
+        "id": "DR05",
+        "name": "Efes Bira",
+        "name_de": "Efes Bier",
+        "description": "Classic Turkish lager. 500ml. Refreshing and light.",
+        "description_de": "Klassisches türkisches Lagerbier. 500ml.",
+        "price": 5.50,
+        "allergens": ["gluten"],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": false,
+        "category": "drink",
+        "popular": false,
+        "note": "Contains alcohol"
+      },
+      {
+        "id": "DR06",
+        "name": "Hausgemachte Limonade",
+        "name_de": "Hausgemachte Limonade",
+        "description": "Fresh hand-squeezed lemonade with mint and ginger. Served over ice.",
+        "description_de": "Frisch gepresste Limonade mit Minze und Ingwer. Mit Eis.",
+        "price": 5.00,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": false
+      },
+      {
+        "id": "DR07",
+        "name": "Wasser",
+        "name_de": "Wasser",
+        "description": "Still or sparkling mineral water. 0.33L or 0.75L.",
+        "description_de": "Stilles oder Sprudelwasser. 0,33L oder 0,75L.",
+        "price_small": 3.00,
+        "price_large": 5.50,
+        "price": 3.00,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": true,
+        "category": "drink",
+        "popular": false
+      },
+      {
+        "id": "DR08",
+        "name": "Raki",
+        "name_de": "Raki",
+        "description": "The iconic Turkish anise spirit. Served with water and ice — turns white on mixing. 4cl.",
+        "description_de": "Der ikonische türkische Anisschnaps. Mit Wasser und Eis serviert. 4cl.",
+        "price": 8.00,
+        "allergens": [],
+        "vegan": true,
+        "vegetarian": true,
+        "halal": false,
+        "category": "drink",
+        "popular": false,
+        "note": "Contains alcohol"
+      },
+      {
+        "id": "DR09",
+        "name": "Rotwein / Weißwein",
+        "name_de": "Rotwein / Weißwein",
+        "description": "Curated Turkish wines. Ask your waiter for today's selection. Glass or bottle.",
+        "description_de": "Ausgewählte türkische Weine. Fragen Sie Ihren Kellner nach der Tagesauswahl. Glas oder Flasche.",
+        "price_glass": 8.50,
+        "price_bottle": 38.00,
+        "price": 8.50,
+        "allergens": ["sulphites"],
+        "vegan": false,
+        "vegetarian": true,
+        "halal": false,
+        "category": "drink",
+        "popular": false,
+        "note": "Contains alcohol and sulphites"
+      }
+    ]
+  },
+  "specials": {
+    "weekly": [
+      {
+        "day": "friday",
+        "name": "Kuzu Pirzola",
+        "name_de": "Lammkoteletts Freitagsspezial",
+        "description": "Grilled rack of lamb with herb crust, pomegranate glaze, and seasonal vegetables. Friday only.",
+        "price": 32.90,
+        "allergens": []
+      },
+      {
+        "day": "sunday",
+        "name": "Brunch Mezze",
+        "name_de": "Sonntags-Brunch",
+        "description": "Unlimited mezze brunch: hummus, börek, eggs, cheeses, olives, fresh bread, tea and coffee. Sunday 12:00–15:00.",
+        "price": 24.90,
+        "allergens": ["gluten", "dairy", "eggs"]
+      }
+    ],
+    "seasonal": "Ask about our seasonal specials — we change them monthly based on the freshest ingredients.",
+    "private_events": {
+      "available": true,
+      "capacity": 20,
+      "description": "Private dining room available for birthdays, corporate events, and celebrations. Set menus from €45 per person.",
+      "contact": "events@bosphorus-berlin.de"
+    }
+  },
+  "faq": [
+    {
+      "question": "Is the kitchen halal certified?",
+      "answer": "Yes. Our kitchen is fully halal certified. No pork products are used in any dish. Alcoholic beverages are available but served separately."
+    },
+    {
+      "question": "Do you have vegan options?",
+      "answer": "Yes! Hummus, Çoban Salatası, Sebzeli Güveç, Falafel Teller, Lokma, Çay, Ayran (vegetarian), Şalgam Suyu, and Hausgemachte Limonade are vegan or vegan-friendly."
+    },
+    {
+      "question": "Do you have gluten-free options?",
+      "answer": "Several dishes are naturally gluten-free, including Adana Kebab (without bread), Çoban Salatası, Sebzeli Güveç, and most grilled mains. Please inform your waiter of any allergies."
+    },
+    {
+      "question": "Can I bring a birthday cake?",
+      "answer": "Absolutely! We can also arrange a cake for you — please give us 48 hours notice. We add a small €5 plate fee if you bring your own."
+    },
+    {
+      "question": "Is there parking?",
+      "answer": "Public parking is available at Torstraße Parkhaus, a 3 minute walk. Tram M8/M10 stop is directly outside the restaurant."
+    },
+    {
+      "question": "Do you offer group menus?",
+      "answer": "Yes. For groups of 8 or more, we recommend our set menus starting at €35 per person. Contact us at events@bosphorus-berlin.de."
+    },
+    {
+      "question": "What happens if the restaurant is fully booked?",
+      "answer": "If we are fully booked, we will add you to our live waitlist. As soon as a table becomes available, we will notify you immediately via WhatsApp. You will have 15 minutes to confirm — if no reply, the table moves to the next person on the waitlist. We also suggest the nearest available alternative slot so you are never left without options."
+    },
+    {
+      "question": "Where are you located?",
+      "answer": "Bosphorus Berlin is located at Torstraße 142, Berlin Mitte, 10119. We are in the heart of Mitte, directly on the tram M8/M10 stop. Public parking at Torstraße Parkhaus is a 3-minute walk."
+    }
+  ]
+}
