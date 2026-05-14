@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(git pull *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(python3 -c \"from rag.cache import cache_clear; cache_clear\\(\\)\")"
     ]
   }
 }

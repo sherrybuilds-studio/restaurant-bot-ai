@@ -1,4 +1,11 @@
+import sys
 import os
+
+# Ensure our project root takes precedence over any globally installed packages
+# that share module names (e.g. montari-oak-ai/rag/ shadows our rag/ package).
+_project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path = [_project_root] + [p for p in sys.path if "montari-oak" not in p]
+
 import re
 import json
 import requests
@@ -98,15 +105,25 @@ def _extract_reservation_details(message):
         if fuer_match:
             details["party_size"] = int(fuer_match.group(1))
 
-    # Time
-    time_match = re.search(r'(\d{1,2})[:\.]?(\d{2})?\s*(uhr|pm|am|h)?', message.lower())
-    if time_match:
-        hour = int(time_match.group(1))
-        minute = int(time_match.group(2)) if time_match.group(2) else 0
-        if time_match.group(3) == "pm" and hour < 12:
+    # Time — use findall so the party-size digit ("2 Personen") doesn't
+    # consume the match before we reach the actual time ("20 Uhr").
+    time_matches = re.findall(r'(\d{1,2})[:\.]?(\d{2})?\s*(uhr|pm|am|h\b)', message.lower())
+    for grp in time_matches:
+        hour = int(grp[0])
+        minute = int(grp[1]) if grp[1] else 0
+        if grp[2] == "pm" and hour < 12:
             hour += 12
         if 11 <= hour <= 23:
             details["time"] = f"{hour:02d}:{minute:02d}"
+            break
+    # Fallback: plain hour with no suffix (e.g. "um 20")
+    if "time" not in details:
+        plain = re.findall(r'um\s+(\d{1,2})', message.lower())
+        for h in plain:
+            hour = int(h)
+            if 11 <= hour <= 23:
+                details["time"] = f"{hour:02d}:00"
+                break
 
     # Date — simplified: look for day names or "heute"/"morgen"
     today = datetime.now()
@@ -171,6 +188,20 @@ def _handle_reservation_flow(phone, message, intent):
         missing.append("party_size")
     if "name" not in state:
         missing.append("name")
+
+    # If name is the only thing missing and the message is a short plain reply,
+    # treat the whole message as the customer's name rather than waiting for the LLM.
+    if missing == ["name"]:
+        candidate = message.strip()
+        is_plain_name = (
+            1 <= len(candidate.split()) <= 4
+            and not re.search(r'\d', candidate)
+            and not any(w in candidate.lower() for w in
+                        ["tisch", "buchen", "platz", "reservier", "danke", "bitte", "uhr"])
+        )
+        if is_plain_name:
+            state["name"] = candidate.title()
+            missing = []
 
     if missing:
         _pending_reservations[phone] = state
@@ -276,15 +307,24 @@ def process_message(phone, message_text):
 
         print(f"[bot] Message from {phone}: {message_text[:80]}")
 
-        # 1. Check semantic cache
+        # 1. If a reservation is already in progress for this phone, always run the
+        #    flow first — the next message may be a name or other detail regardless
+        #    of what intent it would normally detect.
+        if phone in _pending_reservations:
+            reservation_response = _handle_reservation_flow(phone, message_text, "reservation")
+            if reservation_response:
+                _update_history(phone, message_text, reservation_response)
+                return reservation_response
+
+        # 2. Check semantic cache (only for non-in-progress flows)
         cached = cache_lookup(message_text)
         if cached:
             return cached
 
-        # 2. Detect intent
+        # 3. Detect intent
         intent = detect_intent(message_text)
 
-        # 3. Try to handle reservation flow directly (faster than LLM)
+        # 4. Try to handle reservation/cancellation/confirmation flow
         if intent in ("reservation", "cancellation", "confirmation"):
             reservation_response = _handle_reservation_flow(phone, message_text, intent)
             if reservation_response:
@@ -333,3 +373,21 @@ def clear_conversation(phone):
     """Resets conversation history for a phone number."""
     _conversations.pop(phone, None)
     _pending_reservations.pop(phone, None)
+
+
+if __name__ == "__main__":
+    print("Bosphorus Berlin Bot — local test mode")
+    print("Type your message and press Enter. 'quit' to exit.\n")
+    test_phone = "49301234567"
+    while True:
+        try:
+            user_input = input("You: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\nExiting.")
+            break
+        if user_input.lower() in ("quit", "exit", "q"):
+            break
+        if not user_input:
+            continue
+        response = process_message(test_phone, user_input)
+        print(f"Bot: {response}\n")

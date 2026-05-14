@@ -44,7 +44,6 @@ def create_reservation(customer_name, phone, party_size, date, time, notes=""):
             "status": "confirmed",
             "notes": notes,
             "confirmation_number": confirmation_number,
-            "confirmed_at": datetime.utcnow().isoformat()
         }
 
         result = client.table("reservations").insert(data).execute()
