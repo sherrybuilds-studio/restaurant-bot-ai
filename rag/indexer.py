@@ -1,5 +1,6 @@
 import json
 import os
+import shutil
 import chromadb
 from chromadb.utils import embedding_functions
 
@@ -162,18 +163,18 @@ def build_index():
     print(f"  → {len(docs)} documents prepared")
 
     print("Initialising ChromaDB...")
+    # Wipe the entire directory so no stale _type schema files remain.
+    # delete_collection() alone leaves SQLite/parquet artifacts that cause
+    # a KeyError '_type' on the next PersistentClient() call in v0.5.x.
+    if os.path.exists(CHROMA_PATH):
+        shutil.rmtree(CHROMA_PATH)
+        print(f"  → Wiped existing chroma_db at {CHROMA_PATH}")
+
     client = chromadb.PersistentClient(path=CHROMA_PATH)
 
     ef = embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="all-MiniLM-L6-v2"
     )
-
-    # Drop and recreate for clean rebuild
-    try:
-        client.delete_collection("restaurant_knowledge")
-        print("  → Existing collection deleted")
-    except Exception:
-        pass
 
     collection = client.create_collection(
         name="restaurant_knowledge",
